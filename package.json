@@ -6,5 +6,16 @@
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.20"
-	}
+	},
+	"scripts": {
+		"start": "nodemon server.js",
+		"build": "cd client && npm install && npm build",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"name": "zadanie_rest_api",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:Luiza0607/Rest_API.git",
+	"author": "Luiza0607 <110295222+Luiza0607@users.noreply.github.com>",
+	"license": "MIT"
 }
