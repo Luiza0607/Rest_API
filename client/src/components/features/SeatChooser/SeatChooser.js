@@ -11,14 +11,14 @@ const SeatChooser = ({ chosenDay, chosenSeat, updateSeat }) => {
   const requests = useSelector(getRequests);
   const PLACES_NUMBER = 50;
   
-  useEffect(() => {
-    dispatch(loadSeatsRequest());
-	  const socket = io(process.env.NODE_ENV === 'production' ? '' : 'localhost:8000',{ adress: ['websocket'] });
+	useEffect(() => {
+		dispatch(loadSeatsRequest());
+		const socket = io(process.env.NODE_ENV === 'production' ? '' : 'localhost:8000', { adress: ['websocket'] });
 
-	  socket.on('seatsUpdated', (seats) => {
-		  dispatch(loadSeats(seats));
-	  });
-  }, [dispatch])
+		socket.on('seatsUpdated', (seats) => {
+			dispatch(loadSeats(seats));
+		});
+	}, [dispatch]);
 
   const isTaken = (seatId) => {
     return (seats.some(item => (item.seat === seatId && item.day === chosenDay)));
